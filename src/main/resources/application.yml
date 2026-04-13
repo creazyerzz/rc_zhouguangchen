@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: api-notify-server
+  datasource:
+    url: jdbc:mysql://localhost:3306/notify_db?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+server:
+  port: 8080
+
+notify:
+  worker:
+    thread-count: 3
+    fetch-batch-size: 50
+    queue-capacity: 1000
+    retry-delay-seconds: 60

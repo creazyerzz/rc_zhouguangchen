@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: api-notify-server-test
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: 0
+
+notify:
+  worker:
+    thread-count: 1
+    fetch-batch-size: 10
+    queue-capacity: 100
+    retry-delay-seconds: 60
